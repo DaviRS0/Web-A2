@@ -96,5 +96,3 @@ document .getElementById("estimateForm") .addEventListener("submit", function (e
     displayReceipt();
   });
 
-//Missing features
-//Seaparte items - quantity - unit price - total price
