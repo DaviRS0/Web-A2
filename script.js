@@ -8,7 +8,7 @@ document .getElementById("estimateForm") .addEventListener("submit", function (e
     var ccmonth = document.getElementById("ccmonth").value;
     var ccyear = document.getElementById("ccyear").value;
 
-    // Validation
+    // Validation methods
     if (!name) {
       errors.push("Name is required.");
     }
@@ -73,22 +73,21 @@ document .getElementById("estimateForm") .addEventListener("submit", function (e
       var totalCost = 0;
       for (var i = 0; i < items.length; i++) {
         var quantity = document.getElementById("item" + (i + 1)).value;
-        if (quantity > 0) {
-          // Check if the quantity is not zero
+        if (quantity > 0) { // Only display items that have been selected
           var itemCost = itemValues[i] * quantity;
           itemsTable.innerHTML += "<tr><td>" + itemNames[i] + "</td><td>" + quantity + "</td><td>$" + itemValues[i] + "</td><td>$" + itemCost.toFixed(2) + "</td></tr>";
           totalCost += itemCost;
         }
       }
 
-      var donation = Math.max(10, totalCost * 0.1);
+      var donation = Math.max(10, totalCost * 0.1); // 10% of the total cost or $10, whichever is higher
       itemsTable.innerHTML += "<tr><td></td><td>Donation</td><td>Minimum</td><td>$" + donation.toFixed(2) + "</td></tr>";
-      itemsTable.innerHTML += "<tr><td></td><td></td><td>Total Cost</td><td>$" + totalCost.toFixed(2) + "</td></tr>";
+      itemsTable.innerHTML += "<tr><td></td><td>Total Cost</td><td></td><td>$" + totalCost.toFixed(2) + "</td></tr>";
 
       receiptTable.appendChild(itemsTable);
     }
 
-    if (errors.length > 0) {
+    if (errors.length > 0) {  
       errorsDiv.innerHTML = errors.join("<br>");
       return;
     }
