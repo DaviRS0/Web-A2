@@ -22,9 +22,9 @@ document .getElementById("estimateForm") .addEventListener("submit", function (e
       errors.push("Credit card information is not in the correct format.");
     }
 
-    var ccmonthPattern = /^(0[1-9]|1[0-2])-(0[1-9]|1[0-2])$/;
+    var ccmonthPattern = /^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)$/;
     if (!ccmonthPattern.test(ccmonth)) {
-      errors.push("Credit card expiry month is not in the correct format.");
+      errors.push("Credit card expiry month is not in the correct format. It should be in 3-letter format (e.g., 'Jan', 'Feb', etc.).");
     }
 
     var ccyearPattern = /^\d{4}$/;
