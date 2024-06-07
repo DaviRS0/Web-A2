@@ -19,7 +19,7 @@ document .getElementById("estimateForm") .addEventListener("submit", function (e
 
     var ccinfoPattern = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
     if (!ccinfoPattern.test(ccinfo)) {
-      errors.push("Credit card information is not in the correct format.");
+      errors.push("Credit card information is not in the correct format It should be in the XXXX-XXXX-XXXX-XXXX format.");
     }
 
     var ccmonthPattern = /^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)$/;
